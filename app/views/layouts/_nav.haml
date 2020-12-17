@@ -1,0 +1,276 @@
+%nav#topnav.navbar.navbar-expand-lg.navbar-light
+  .container
+    / Toggler
+    %button.navbar-toggler.mr-auto{"aria-controls" => "navbar", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    / Brand
+    %a.navbar-brand.mr-auto{:href => "index.html"}
+      %img.navbar-brand-img{:alt => "Racenow", :src => "/theme/img/logo.svg", :height => "24"}/
+    / Form
+    %form.form-inline.mr-4.d-none.d-lg-flex
+      .input-group.input-group-rounded.input-group-merge{"data-options" => "{\"valueNames\": [\"name\"]}", "data-toggle" => "lists"}
+        / Input
+        %input.form-control.form-control-prepended.dropdown-toggle.search{"aria-label" => "Search", "data-toggle" => "dropdown", :placeholder => "Search", :type => "search"}/
+        .input-group-prepend
+          .input-group-text
+            %i.fe.fe-search
+        / Menu
+        .dropdown-menu.dropdown-menu-card
+          .card-body
+            / List group
+            .list-group.list-group-flush.list.my-n3
+              %a.list-group-item.px-0{:href => "team-overview.html"}
+                .row.align-items-center
+                  .col-auto
+                    / Avatar
+                    .avatar
+                      %img.avatar-img.rounded{:alt => "...", :src => "/theme/img/logo.svg"}/
+                  .col.ml-n2
+                    / Title
+                    %h4.text-body.mb-1.name
+                      Airbnb
+                    / Time
+                    %p.small.text-muted.mb-0
+                      %span.fe.fe-clock
+                      %time{:datetime => "2018-05-24"} Updated 2hr ago
+                / / .row
+
+        / / .dropdown-menu
+    / User
+    .navbar-user
+      / Dropdown
+      .dropdown.mr-4.d-none.d-lg-flex
+        / Toggle
+        %a.navbar-user-link{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          %span.icon.active
+            %i.fe.fe-bell
+        / Menu
+        .dropdown-menu.dropdown-menu-right.dropdown-menu-card
+          .card-header
+            .row.align-items-center
+              .col
+                / Title
+                %h5.card-header-title
+                  Notifications
+              .col-auto
+                / Link
+                %a.small{:href => "#!"}
+                  View all
+            / / .row
+          / / .card-header
+          .card-body
+            / List group
+            .list-group.list-group-flush.my-n3
+              %a.list-group-item.text-reset.px-0{:href => "#!"}
+                .row
+                  .col-auto
+                    / Avatar
+                    .avatar.avatar-sm
+                      %img.avatar-img.rounded-circle{:alt => "...", :src => "./theme/img/logo.svg"}/
+                  .col.ml-n2
+                    / Content
+                    .small
+                      %strong Dianna Smiley
+                      shared your post with Ab Hadley, Adolfo Hess, and 3 others.
+                    / Time
+                    %small.text-muted
+                      2m ago
+                / / .row
+              %a.list-group-item.text-reset.px-0{:href => "#!"}
+                .row
+                  .col-auto
+                    / Avatar
+                    .avatar.avatar-sm
+                      %img.avatar-img.rounded-circle{:alt => "...", :src => "./theme/img/logo.svg"}/
+                  .col.ml-n2
+                    / Content
+                    .small
+                      %strong Ab Hadley
+                      reacted to your post with a 😍
+                    / Time
+                    %small.text-muted
+                      2m ago
+                / / .row
+              %a.list-group-item.text-reset.px-0{:href => "#!"}
+                .row
+                  .col-auto
+                    / Avatar
+                    .avatar.avatar-sm
+                      %img.avatar-img.rounded-circle{:alt => "...", :src => "./theme/img/logo.svg"}/
+                  .col.ml-n2
+                    / Content
+                    .small
+                      %strong Adolfo Hess
+                      commented
+                      %blockquote.mb-0 “I don’t think this really makes sense to do without approval from Johnathan since he’s the one...”
+                    / Time
+                    %small.text-muted
+                      2m ago
+                / / .row
+              %a.list-group-item.text-reset.px-0{:href => "#!"}
+                .row
+                  .col-auto
+                    / Avatar
+                    .avatar.avatar-sm
+                      %img.avatar-img.rounded-circle{:alt => "...", :src => "./theme/img/logo.svg"}/
+                  .col.ml-n2
+                    / Content
+                    .small
+                      %strong Daniela Dewitt
+                      subscribed to you.
+                    / Time
+                    %small.text-muted
+                      2m ago
+                / / .row
+
+        / / .dropdown-menu
+      / Dropdown
+      .dropdown
+        / Toggle
+        %a.avatar.avatar-sm.avatar-online.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          %img.avatar-img.rounded-circle{:alt => "...", :src => "./theme/img/logo.svg"}/
+        / Menu
+        .dropdown-menu.dropdown-menu-right
+          %a.dropdown-item{:href => "profile-posts.html"} Profile
+          %a.dropdown-item{:href => "settings.html"} Settings
+          %hr.dropdown-divider/
+          %a.dropdown-item{:href => "sign-in.html"} Logout
+    / Collapse
+    #navbar.collapse.navbar-collapse.mr-auto.order-lg-first
+      / Form
+      %form.mt-4.mb-3.d-md-none
+        %input.form-control.form-control-rounded{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
+      / Navigation
+      %ul.navbar-nav.mr-auto
+        %li.nav-item.dropdown
+          %a#topnavDashboards.nav-link.dropdown-toggle.active{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Dashboards
+          %ul.dropdown-menu{"aria-labelledby" => "topnavDashboards"}
+            %li
+              %a.dropdown-item.active{:href => "index.html"}
+                Default
+            %li
+              %a.dropdown-item{:href => "dashboard-alt.html"}
+                Alternative
+        %li.nav-item.dropdown
+          %a#topnavPages.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Pages
+          %ul.dropdown-menu{"aria-labelledby" => "topnavPages"}
+            %li.dropright
+              %a#topnavProfile.dropdown-item.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Profile
+              .dropdown-menu{"aria-labelledby" => "topnavProfile"}
+                %a.dropdown-item{:href => "profile-posts.html"}
+                  Posts
+                %a.dropdown-item{:href => "profile-groups.html"}
+                  Groups
+                %a.dropdown-item{:href => "profile-projects.html"}
+                  Projects
+                %a.dropdown-item{:href => "profile-files.html"}
+                  Files
+                %a.dropdown-item{:href => "profile-subscribers.html"}
+                  Subscribers
+            %li.dropright
+              %a#topnavProject.dropdown-item.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Project
+              .dropdown-menu{"aria-labelledby" => "topnavProject"}
+                %a.dropdown-item{:href => "project-overview.html"}
+                  Overview
+                %a.dropdown-item{:href => "project-files.html"}
+                  Files
+                %a.dropdown-item{:href => "project-reports.html"}
+                  Reports
+                %a.dropdown-item{:href => "project-new.html"}
+                  New project
+            %li.dropright
+              %a#topnavTeam.dropdown-item.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Team
+              .dropdown-menu{"aria-labelledby" => "topnavTeam"}
+                %a.dropdown-item{:href => "team-overview.html"}
+                  Overview
+                %a.dropdown-item{:href => "team-projects.html"}
+                  Projects
+                %a.dropdown-item{:href => "team-members.html"}
+                  Members
+                %a.dropdown-item{:href => "team-new.html"}
+                  New team
+            %li.dropright
+              %a#topnavFeed.dropdown-item.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Feed
+              .dropdown-menu{"aria-labelledby" => "topnavFeed"}
+                %a.dropdown-item{:href => "feed.html"}
+                  Platform
+                %a.dropdown-item{:href => "social-feed.html"}
+                  Social
+            %li
+              %a.dropdown-item{:href => "kanban.html"}
+                Kanban
+            %li
+              %a.dropdown-item{:href => "orders.html"}
+                Orders
+            %li
+              %a.dropdown-item{:href => "settings.html"}
+                Settings
+            %li
+              %a.dropdown-item{:href => "invoice.html"}
+                Invoice
+            %li
+              %a.dropdown-item{:href => "pricing.html"}
+                Pricing
+        %li.nav-item.dropdown
+          %a#topnavAuth.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Auth
+          %ul.dropdown-menu{"aria-labelledby" => "topnavAuth"}
+            %li.dropright
+              %a#topnavSignIn.dropdown-item.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Sign in
+              .dropdown-menu{"aria-labelledby" => "topnavSignIn"}
+                %a.dropdown-item{:href => "sign-in-cover.html"}
+                  Cover
+                %a.dropdown-item{:href => "sign-in-illustration.html"}
+                  Illustration
+                %a.dropdown-item{:href => "sign-in-basics.html"}
+                  Basic
+            %li.dropright
+              %a#topnavSignUp.dropdown-item.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Sign up
+              .dropdown-menu{"aria-labelledby" => "topnavSignUp"}
+                %a.dropdown-item{:href => "sign-up-cover.html"}
+                  Cover
+                %a.dropdown-item{:href => "sign-up-illustration.html"}
+                  Illustration
+                %a.dropdown-item{:href => "sign-up.html"}
+                  Basic
+            %li.dropright
+              %a#topnavPassword.dropdown-item.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Password reset
+              .dropdown-menu{"aria-labelledby" => "topnavPassword"}
+                %a.dropdown-item{:href => "password-reset-cover.html"}
+                  Cover
+                %a.dropdown-item{:href => "password-reset-illustration.html"}
+                  Illustration
+                %a.dropdown-item{:href => "password-reset.html"}
+                  Basic
+            %li.dropright
+              %a#topnavError.dropdown-item.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Error
+              .dropdown-menu{"aria-labelledby" => "topnavError"}
+                %a.dropdown-item{:href => "error-illustration.html"}
+                  Illustration
+                %a.dropdown-item{:href => "error.html"}
+                  Basic
+        %li.nav-item.dropdown
+          %a#topnavDocumentation.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Docs
+          %ul.dropdown-menu{"aria-labelledby" => "topnavDocumentation"}
+            %li
+              %a.dropdown-item{:href => "getting-started.html"}
+                Getting started
+            %li
+              %a.dropdown-item{:href => "components.html"}
+                Components
+            %li
+              %a.dropdown-item{:href => "changelog.html"}
+                Changelog
+
+  / / .container

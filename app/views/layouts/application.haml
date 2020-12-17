@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title CollegeVine
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag '/theme/fonts/feather/feather'
+    = stylesheet_link_tag '/theme/css/theme.min'
+  %body
+    = render partial: "layouts/nav"
+    .main-content
+      = yield
+
+    -# Theme JS includes
+    = javascript_include_tag "/theme/libs/jquery/dist/jquery.min.js"
+    = javascript_include_tag "/theme/libs/bootstrap/dist/js/bootstrap.bundle.min.js"
+    =# javascript_include_tag "/theme/libs/@shopify/draggable/lib/es5/draggable.bundle.legacy.js"
+    =# javascript_include_tag "/theme/libs/autosize/dist/autosize.min.js"
+    =# javascript_include_tag "/theme/libs/chart.js/dist/Chart.min.js"
+    =# javascript_include_tag "/theme/libs/dropzone/dist/min/dropzone.min.js"
+    =# javascript_include_tag "/theme/libs/flatpickr/dist/flatpickr.min.js"
+    =# javascript_include_tag "/theme/libs/highlightjs/highlight.pack.min.js"
+    =# javascript_include_tag "/theme/libs/jquery-mask-plugin/dist/jquery.mask.min.js"
+    =# javascript_include_tag "/theme/libs/list.js/dist/list.min.js"
+    =# javascript_include_tag "/theme/libs/quill/dist/quill.min.js"
+    =# javascript_include_tag "/theme/libs/select2/dist/js/select2.min.js"
+    =# javascript_include_tag "/theme/libs/chart.js/Chart.extension.min.js"
+
+    -# Map plugin
+    = javascript_include_tag "https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"
+
+    -# Theme JS itself
+    = javascript_include_tag '/theme/js/theme.min.js'
