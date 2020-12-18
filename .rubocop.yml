@@ -74,3 +74,6 @@ Style/WordArray:
 
 Rails/DynamicFindBy:
   Enabled: false
+
+Rails/BulkChangeTable:
+  Enabled: false

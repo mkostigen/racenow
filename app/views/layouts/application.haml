@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title CollegeVine
+    %title RACE NOW
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag '/theme/fonts/feather/feather'
@@ -10,6 +10,11 @@
   %body
     = render partial: "layouts/nav"
     .main-content
+      -if notice || alert
+        %p.notice
+          = notice
+        %p.alert
+          = alert
       = yield
 
     -# Theme JS includes

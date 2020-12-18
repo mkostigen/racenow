@@ -4,7 +4,7 @@
     %button.navbar-toggler.mr-auto{"aria-controls" => "navbar", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     / Brand
-    %a.navbar-brand.mr-auto{:href => "index.html"}
+    %a.navbar-brand.mr-auto{:href => root_path }
       %img.navbar-brand-img{:alt => "Racenow", :src => "/theme/img/logo.svg", :height => "24"}/
     / Form
     %form.form-inline.mr-4.d-none.d-lg-flex
@@ -134,7 +134,10 @@
           %a.dropdown-item{:href => "profile-posts.html"} Profile
           %a.dropdown-item{:href => "settings.html"} Settings
           %hr.dropdown-divider/
-          %a.dropdown-item{:href => "sign-in.html"} Logout
+          - if current_user
+            %a.dropdown-item{:href => destroy_user_session_path( user_id: current_user.id) } Logout
+          - else
+            %a.dropdown-item{:href => new_user_session_path } Logout
     / Collapse
     #navbar.collapse.navbar-collapse.mr-auto.order-lg-first
       / Form

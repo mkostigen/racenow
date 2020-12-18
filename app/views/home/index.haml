@@ -1,11 +1,12 @@
 .container-fluid
-  .row
-    .col
-      &nbsp;
-  .row.justify-content-center
-    .col-6.col-lg-4
-      .card.shadow-lg
-        .card-body
-          %h2 Racing on Rails!
-          %p
-            The time is now: #{Time.now}
+  .header
+    .p-5.text-center.bg-image{:style => "background-image: url('/img/covers/laser2.jpg'); background-size: cover;"}
+      .mask{:style => "background-color: rgba(0, 0, 0, 0.7)"}
+        .d-flex.justify-content-center.align-items-center.h-100
+          .text-white
+            %h1.mb-3 RACENOW
+            %h5.mb-4 Race Registration, Scoring, and Management
+            %a.btn.btn-outline-light.btn-lg.m-5{ href: "", :rel => "nofollow", :role => "button", :target => "_blank"} Find Races
+            %a.btn.btn-outline-light.btn-lg.m-5{ href:  new_user_registration_path, :role => "button", :target => "_blank"} Sign Up!
+
+
