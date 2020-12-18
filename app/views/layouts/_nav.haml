@@ -5,8 +5,8 @@
       %span.navbar-toggler-icon
     / Brand
     %a.navbar-brand.mr-auto{:href => root_path }
-      %img.navbar-brand-img{:alt => "Racenow", :src => "/theme/img/logo.svg", :height => "24"}/
-    / Form
+      %img.navbar-brand-img{:alt => "Racenow", :src => "/img/AbstractBoat2.svg", :height => "24"} RACENOW
+    / Form RACE
     %form.form-inline.mr-4.d-none.d-lg-flex
       .input-group.input-group-rounded.input-group-merge{"data-options" => "{\"valueNames\": [\"name\"]}", "data-toggle" => "lists"}
         / Input
@@ -135,9 +135,9 @@
           %a.dropdown-item{:href => "settings.html"} Settings
           %hr.dropdown-divider/
           - if current_user
-            %a.dropdown-item{:href => destroy_user_session_path( user_id: current_user.id) } Logout
+            %a.dropdown-item{:href => destroy_user_session_path( id: current_user.id), method: :delete } Logout
           - else
-            %a.dropdown-item{:href => new_user_session_path } Logout
+            %a.dropdown-item{:href => new_user_session_path } Login
     / Collapse
     #navbar.collapse.navbar-collapse.mr-auto.order-lg-first
       / Form

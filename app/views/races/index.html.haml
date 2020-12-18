@@ -1,0 +1,16 @@
+.container
+  %h1 Listing races
+
+  - @races.each do |race|
+    .card
+      .card-header
+        .row
+          .col-6
+            = race.name
+          .col-6
+            = race.date
+      .card-body
+        .row
+          .col-3
+            %p placeholder
+
