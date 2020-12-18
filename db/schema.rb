@@ -1,3 +1,4 @@
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,17 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_17_061127) do
-
+ActiveRecord::Schema.define(version: 20_201_218_015_109) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.boolean "is_boat_owner?"
+  create_table 'boats', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'name', null: false
+    t.string 'manufacturer'
+    t.string 'model'
+    t.string 'year'
+    t.string 'loa'
+    t.string 'color'
+    t.bigint 'user_id', null: false
+    t.index ['user_id'], name: 'index_boats_on_user_id'
   end
 
+  create_table 'users', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'first_name', null: false
+    t.string 'last_name', null: false
+    t.string 'email', null: false
+    t.boolean 'is_boat_owner?'
+    t.index ['email'], name: 'index_users_on_email', unique: true
+  end
+
+  add_foreign_key 'boats', 'users', on_delete: :cascade
 end
