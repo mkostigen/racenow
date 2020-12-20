@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :registrations
   resources :races
   resources :boats
   get '/users/sign_out' => 'devise/sessions#destroy'

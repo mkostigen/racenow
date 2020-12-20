@@ -1,5 +1,11 @@
 .container
   %h1 Listing races
+  .row
+    .col-3
+      %button.btn.btn-primary{ data: { toggle: "modal", target: "#modal-test" } }
+        test
+      %button.btn.btn-primary{ data: { toggle: "modal", target: "#modal-template" } }
+        New Race
 
   - @races.each do |race|
     .card
@@ -13,4 +19,7 @@
         .row
           .col-3
             %p placeholder
-
+:javascript
+  $(document).ready(function() {
+    $( "#modal-template-body" ).load( "races/new" )
+  });

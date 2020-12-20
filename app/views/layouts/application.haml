@@ -7,18 +7,28 @@
     = csp_meta_tag
     = stylesheet_link_tag '/theme/fonts/feather/feather'
     = stylesheet_link_tag '/theme/css/theme.min'
-  %body
+    = javascript_include_tag "/theme/libs/jquery/dist/jquery.min.js"
+    = javascript_include_tag "/theme/libs/jquery-mask-plugin/dist/jquery.mask.min.js"
+
+  %body{"data-action" => action_name, "data-controller" => controller_name}
+
     = render partial: "layouts/nav"
     .main-content
-      -if notice || alert
+      -if notice
         %p.notice
-          = notice
-        %p.alert
-          = alert
+          .rounded-0{ class: "alert-primary" }
+            .container
+              = notice
+      -elsif alert
+        %p.notice
+          .alert.rounded-0{ class: "alert-success" }
+            .container
+              = alert
       = yield
 
+      = render partial: 'layouts/modal'
+
     -# Theme JS includes
-    = javascript_include_tag "/theme/libs/jquery/dist/jquery.min.js"
     = javascript_include_tag "/theme/libs/bootstrap/dist/js/bootstrap.bundle.min.js"
     =# javascript_include_tag "/theme/libs/@shopify/draggable/lib/es5/draggable.bundle.legacy.js"
     =# javascript_include_tag "/theme/libs/autosize/dist/autosize.min.js"
@@ -26,9 +36,8 @@
     =# javascript_include_tag "/theme/libs/dropzone/dist/min/dropzone.min.js"
     =# javascript_include_tag "/theme/libs/flatpickr/dist/flatpickr.min.js"
     =# javascript_include_tag "/theme/libs/highlightjs/highlight.pack.min.js"
-    =# javascript_include_tag "/theme/libs/jquery-mask-plugin/dist/jquery.mask.min.js"
-    =# javascript_include_tag "/theme/libs/list.js/dist/list.min.js"
-    =# javascript_include_tag "/theme/libs/quill/dist/quill.min.js"
+    = javascript_include_tag "/theme/libs/list.js/dist/list.min.js"
+    = javascript_include_tag "/theme/libs/quill/dist/quill.min.js"
     =# javascript_include_tag "/theme/libs/select2/dist/js/select2.min.js"
     =# javascript_include_tag "/theme/libs/chart.js/Chart.extension.min.js"
 

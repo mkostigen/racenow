@@ -16,3 +16,11 @@
 // = require_tree .
 //= require jquery
 //= require jquery_ujs
+
+// This lets us bind "page specific javascript" by listening for the controller:action:loaded event.
+$(document).on('page:change', function(){
+  var data = $('body').data();
+  var key = data['controller'] + ':' + data['action'] + ':loaded';
+  console.log('Triggering', key);
+  $(this).trigger(key);
+});

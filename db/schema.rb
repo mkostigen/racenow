@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_18_052139) do
+ActiveRecord::Schema.define(version: 2020_12_20_015203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(version: 2020_12_18_052139) do
     t.string "state", null: false
   end
 
+  create_table "registrations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "race_id"
+    t.integer "number_of_crew"
+    t.string "crew"
+    t.float "cost"
+    t.string "payment_method"
+    t.string "payed?"
+    t.string "payment_auth"
+    t.index ["race_id"], name: "index_registrations_on_race_id"
+    t.index ["user_id"], name: "index_registrations_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,4 +67,6 @@ ActiveRecord::Schema.define(version: 2020_12_18_052139) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "registrations", "races"
+  add_foreign_key "registrations", "users"
 end

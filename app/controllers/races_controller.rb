@@ -15,6 +15,8 @@ class RacesController < ApplicationController
   # GET /races/new
   def new
     @race = Race.new
+
+    render layout: false
   end
 
   # GET /races/1/edit
@@ -25,17 +27,11 @@ class RacesController < ApplicationController
   # POST /races.json
   def create
     @race = Race.new(race_params)
+    @race.save!
 
-    respond_to do |format|
-      if @race.save
-        format.html { redirect_to @race, notice: 'Race was successfully created.' }
-        format.json { render :show, status: :created, location: @race }
-      else
-        format.html { render :new }
-        format.json { render json: @race.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to races_path
   end
+
 
   # PATCH/PUT /races/1
   # PATCH/PUT /races/1.json
@@ -69,6 +65,6 @@ class RacesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def race_params
-      params.fetch(:race, {})
+      params.require(:race).permit(:name, :date, :city, :state)
     end
 end

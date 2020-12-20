@@ -1,10 +1,30 @@
-= form_for @race do |f|
-  - if @race.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@race.errors.count, "error")} prohibited this race from being saved:"
-      %ul
-        - @race.errors.full_messages.each do |message|
-          %li= message
-
-  .actions
-    = f.submit 'Save'
+.row.align-items-center.justify-content-center
+  .col-5
+    %h1.display-4.text-center.mb-3.pt-5
+      Create a new Race
+    %p.text-muted.text-center.mb-5
+      in seconds
+    = form_for(@race) do |f|
+      .form-group
+        = f.label :name
+        = f.text_field :name, autofocus: true
+      .form-group
+        = f.label :date
+        = f.date_field :date
+      .form-group
+        = f.label :city
+        = f.text_field :city
+      .form-group
+        = f.label :state
+        = f.text_field :state
+      .actions.pb-5
+        = f.submit "Start Organizing", class: "button btn btn-secondary"
+        %button.btn.btn-primary{ "data-dismiss": "modal" } close
+      .actions
+        = f.submit 'Save'
+- if @race.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@race.errors.count, "error")} prohibited this race from being saved:"
+    %ul
+      - @race.errors.full_messages.each do |message|
+        %li= message
