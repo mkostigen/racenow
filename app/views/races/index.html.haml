@@ -1,10 +1,9 @@
+-# TODO abstract modal loading js
 .container
   %h1 Listing races
   .row
     .col-3
-      %button.btn.btn-primary{ data: { toggle: "modal", target: "#modal-test" } }
-        test
-      %button.btn.btn-primary{ data: { toggle: "modal", target: "#modal-template" } }
+      %button.btn.btn-primary{id: "new-race-btn", data: { toggle: "modal", target: "#modal-template" } }
         New Race
 
   - @races.each do |race|
@@ -13,13 +12,34 @@
         .row
           .col-6
             = race.name
+            .loader
+
           .col-6
             = race.date
       .card-body
         .row
-          .col-3
-            %p placeholder
+          .col-6
+            %h3
+              = race&.description
+          .col-6
+            %button.btn.btn-primary{ id: "new-reg-for-#{race.id}",  data: { toggle: "modal", target: "#modal-template" } }
+              Register Now
+            :javascript
+              $('#new-reg-for-#{race.id}').click(function() {
+                $('#modal-template-body').hide();
+                $('.loading').show();
+                $( "#modal-template-body" ).load("registrations/new?race_id=#{race.id}", function() {
+                  $('#modal-template-body').show();
+                  $('.loading').hide();
+                });
+              });
+
 :javascript
-  $(document).ready(function() {
-    $( "#modal-template-body" ).load( "races/new" )
+  $('#new-race-btn').click(function() {
+    $('#modal-template-body').hide();
+    $('.loading').show();
+    $( "#modal-template-body" ).load( "races/new", function() {
+      $('#modal-template-body').show();
+      $('.loading').hide();
+    });
   });

@@ -14,7 +14,11 @@ class RegistrationsController < ApplicationController
 
   # GET /registrations/new
   def new
-    @registration = Registration.new
+    permitted_params = params.permit(:race_id)
+    @race = Race.find(permitted_params[:race_id])
+    @registration = Registration.new(race_id: permitted_params[:race_id])
+
+    render layout: false
   end
 
   # GET /registrations/1/edit
@@ -69,6 +73,6 @@ class RegistrationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def registration_params
-      params.fetch(:registration, {})
+      params.require(:registration).permit(:name, :number_of_crew)
     end
 end

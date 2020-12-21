@@ -1,10 +1,37 @@
-= form_for @registration do |f|
+.row.align-items-center.justify-content-center
+  .col-3
+    %h1.display-4.text-center.mb-3.pt-5
+      Register for #{@race.name}
+    %p.text-muted.text-center.mb-5
+      in seconds
+    = form_for(@registration) do |f|
+      .form-group.ml-5
+        .row
+          .col-2
+            = f.label :name
+          .col-6
+            = f.text_field :name, autofocus: true, default: current_user.name
+      -# .form-group
+      -#   = f.label :boat
+      -#   = f.text_field :boat_name
+      .form-group.ml-5
+        .row
+          .col-2
+            = f.label :number_of_crew, "number of crew"
+          .col-6
+            = f.text_field :number_of_crew
+      .actions.pb-5.ml-5
+        = f.submit "register", class: "button btn btn-secondary"
+        %button.btn.btn-primary{ "data-dismiss": "modal" } close
+  .col-6
+    %h3
+      = @race.name
+    %p cost
+    %p
+      = @race.cost
   - if @registration.errors.any?
     #error_explanation
       %h2= "#{pluralize(@registration.errors.count, "error")} prohibited this registration from being saved:"
       %ul
         - @registration.errors.full_messages.each do |message|
           %li= message
-
-  .actions
-    = f.submit 'Save'
